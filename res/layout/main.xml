@@ -4,7 +4,7 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     >
-<TextView android:text="@string/front_message" android:id="@+id/TextView01" android:layout_width="fill_parent" android:layout_height="wrap_content" android:textStyle="normal|italic" android:gravity="center_vertical|center_horizontal"></TextView>
+<TextView android:text="@string/front_message" android:id="@+id/TextView01" android:layout_width="fill_parent" android:textStyle="normal|italic" android:gravity="center_vertical|center_horizontal" android:layout_height="match_parent"></TextView>
 
 
 </LinearLayout>
