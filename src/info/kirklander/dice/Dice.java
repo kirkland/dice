@@ -13,6 +13,8 @@ import android.widget.Spinner;
 import android.widget.AdapterView.OnItemSelectedListener;
 
 public class Dice extends Activity {
+    int diceCount = 2;
+    
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -27,7 +29,8 @@ public class Dice extends Activity {
         
         class OnDiceSelectedListener implements OnItemSelectedListener {
             public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
-            	// do nothing, yet
+            	int index = (int) id;
+            	diceCount = getResources().getIntArray(R.array.dice_array)[index];
             }
 
             public void onNothingSelected(AdapterView<?> parent) {
@@ -48,10 +51,12 @@ public class Dice extends Activity {
                 ImageView iv = (ImageView) findViewById(R.id.ImageView01);
                 iv.setImageResource(getResources().getIdentifier(resource1, "drawable", getPackageName()));        	
    
+                if (diceCount == 2) {
                 String diceIndex2 = "" + (generator.nextInt(6) + 1);
                 String resource2 = "dice" + diceIndex2;
                 ImageView iv2 = (ImageView) findViewById(R.id.ImageView02);
                 iv2.setImageResource(getResources().getIdentifier(resource2, "drawable", getPackageName()));
+                }
                 
             }
         });
