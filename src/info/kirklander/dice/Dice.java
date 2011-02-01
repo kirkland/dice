@@ -19,14 +19,19 @@ public class Dice extends Activity {
         final Button button = (Button) findViewById(R.id.button1);
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-            	Random generator = new Random();
-            	String diceIndex = "" + (generator.nextInt(6) + 1);
-            	String resource = "dice" + diceIndex;
-            	
                 setContentView(R.layout.dice);
                 
+            	Random generator = new Random();
+            	
+            	String diceIndex1 = "" + (generator.nextInt(6) + 1);
+            	String resource1 = "dice" + diceIndex1;         	            
                 ImageView iv = (ImageView) findViewById(R.id.ImageView01);
-                iv.setImageResource(getResources().getIdentifier(resource, "drawable", getPackageName()));
+                iv.setImageResource(getResources().getIdentifier(resource1, "drawable", getPackageName()));        	
+   
+                String diceIndex2 = "" + (generator.nextInt(6) + 1);
+                String resource2 = "dice" + diceIndex2;
+                ImageView iv2 = (ImageView) findViewById(R.id.ImageView02);
+                iv2.setImageResource(getResources().getIdentifier(resource2, "drawable", getPackageName()));
                 
             }
         });
