@@ -6,7 +6,21 @@
     >
 
 
-<Button android:text="@string/button1" android:id="@+id/button1" android:layout_width="wrap_content" android:layout_height="wrap_content"></Button>
+<Button android:text="@string/button1" android:id="@+id/button1" android:layout_width="match_parent" android:layout_height="wrap_content"></Button>
+ 
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dip"
+        android:text="@string/dice_prompt"
+    />
+    <Spinner 
+        android:id="@+id/spinner"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:prompt="@string/dice_prompt"
+    />
+    
 <ImageView android:id="@+id/ImageView01" android:layout_width="wrap_content" android:layout_height="wrap_content"></ImageView>
 <ImageView android:id="@+id/ImageView02" android:layout_width="wrap_content" android:layout_height="wrap_content"></ImageView>
 </LinearLayout>
