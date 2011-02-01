@@ -5,6 +5,13 @@
     android:layout_height="fill_parent"
     >
 
+ 
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dip"
+        android:id="@+id/debug"
+    />
 
 <Button android:text="@string/button1" android:id="@+id/button1" android:layout_width="match_parent" android:layout_height="wrap_content"></Button>
  
