@@ -6,7 +6,7 @@
     >
 
 
+<Button android:text="@string/button1" android:id="@+id/button1" android:layout_width="wrap_content" android:layout_height="wrap_content"></Button>
 <ImageView android:id="@+id/ImageView01" android:layout_width="wrap_content" android:layout_height="wrap_content"></ImageView>
 <ImageView android:id="@+id/ImageView02" android:layout_width="wrap_content" android:layout_height="wrap_content"></ImageView>
-<Button android:text="@string/button1" android:id="@+id/button1" android:layout_width="wrap_content" android:layout_height="wrap_content"></Button>
 </LinearLayout>
