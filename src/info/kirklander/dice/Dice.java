@@ -14,12 +14,11 @@ public class Dice extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.dice);
+        setContentView(R.layout.main);
 
-        final Button button = (Button) findViewById(R.id.button2);
+        final Button button = (Button) findViewById(R.id.button1);
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-//                setContentView(R.layout.dice);
                 
             	Random generator = new Random();
             	
