@@ -22,11 +22,11 @@ public class Dice extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
         
-        final TextView debug = (TextView) findViewById(R.id.debug);
-        debug.setText("HELLO");
+//        final TextView debug = (TextView) findViewById(R.id.debug);
+//        debug.setText("HELLO");
         
         Spinner spinner = (Spinner) findViewById(R.id.spinner);
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.dice_array, android.R.layout.simple_spinner_item);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.dice_array_strings, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
         
@@ -35,9 +35,8 @@ public class Dice extends Activity {
             public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
             	int index = (int) id;
             	diceCount = getResources().getIntArray(R.array.dice_array)[index];
-            	debug.setText("diceCount = " + diceCount);
             }
-
+            
             public void onNothingSelected(AdapterView<?> parent) {
               // Do nothing.
             }
