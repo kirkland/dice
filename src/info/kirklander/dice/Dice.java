@@ -46,14 +46,14 @@ public class Dice extends Activity {
         final Button button = (Button) findViewById(R.id.button1);
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                
             	Random generator = new Random();
+           		((android.view.ViewGroup) findViewById(R.id.diceHolder)).removeAllViews();
             	
             	for (int i = 0; i < diceCount; i++) {
             		ImageView iv = new ImageView(Dice.this);
             		String resource = "dice" + (generator.nextInt(6) + 1);
             		iv.setImageResource(getResources().getIdentifier(resource, "drawable", getPackageName()));
-            		((android.view.ViewGroup) findViewById(R.id.mainLayout)).addView(iv);
+            		((android.view.ViewGroup) findViewById(R.id.diceHolder)).addView(iv);
             	}
             }
         });
