@@ -11,7 +11,6 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.AdapterView.OnItemSelectedListener;
 
 public class Dice extends Activity {
@@ -23,7 +22,7 @@ public class Dice extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
         
-        final TextView debug = (TextView) findViewById(R.id.debug);
+//        final TextView debug = (TextView) findViewById(R.id.debug);
 //        debug.setText("HELLO");
         
         Spinner spinner = (Spinner) findViewById(R.id.spinner);
@@ -51,8 +50,6 @@ public class Dice extends Activity {
             	
            		((android.view.ViewGroup) findViewById(R.id.diceHolder)).removeAllViews();
            		
-           		debug.setText("" + diceCount);
-            	
             	for (int i = 0; i < diceCount; i++) {
             		ImageView iv = new ImageView(Dice.this);
             		int id = i + 1; // must be a positive number!
