@@ -9,8 +9,8 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.AdapterView.OnItemSelectedListener;
 
 public class Dice extends Activity {
@@ -47,13 +47,24 @@ public class Dice extends Activity {
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
             	Random generator = new Random();
+            	
            		((android.view.ViewGroup) findViewById(R.id.diceHolder)).removeAllViews();
             	
             	for (int i = 0; i < diceCount; i++) {
             		ImageView iv = new ImageView(Dice.this);
+            		iv.setId(i);
             		String resource = "dice" + (generator.nextInt(6) + 1);
             		iv.setImageResource(getResources().getIdentifier(resource, "drawable", getPackageName()));
-            		((android.view.ViewGroup) findViewById(R.id.diceHolder)).addView(iv);
+            		
+            	    RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
+            	    if (i % 2 == 1) {
+            	    	lp.addRule(RelativeLayout.RIGHT_OF, i - 1);
+            	    }
+            	    if (i > 1) {
+            	    	lp.addRule(RelativeLayout.BELOW, i - 2);
+            	    }
+
+            	    ((android.view.ViewGroup) findViewById(R.id.diceHolder)).addView(iv, lp);
             	}
             }
         });
