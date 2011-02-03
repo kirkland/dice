@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.AdapterView.OnItemSelectedListener;
 
 public class Dice extends Activity {
@@ -22,7 +23,7 @@ public class Dice extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
         
-//        final TextView debug = (TextView) findViewById(R.id.debug);
+        final TextView debug = (TextView) findViewById(R.id.debug);
 //        debug.setText("HELLO");
         
         Spinner spinner = (Spinner) findViewById(R.id.spinner);
@@ -49,23 +50,26 @@ public class Dice extends Activity {
             	Random generator = new Random();
             	
            		((android.view.ViewGroup) findViewById(R.id.diceHolder)).removeAllViews();
+           		
+           		debug.setText("" + diceCount);
             	
             	for (int i = 0; i < diceCount; i++) {
             		ImageView iv = new ImageView(Dice.this);
-            		iv.setId(i);
+            		int id = i + 1; // must be a positive number!
+            		iv.setId(id);
             		String resource = "dice" + (generator.nextInt(6) + 1);
             		iv.setImageResource(getResources().getIdentifier(resource, "drawable", getPackageName()));
             		
             	    RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
-            	    if (i < 1) {
+            	    if (id <= 2) {
             	    	lp.addRule(RelativeLayout.ALIGN_PARENT_TOP);
             	    }
-            	    if (i % 2 == 1) {
-            	    	lp.addRule(RelativeLayout.RIGHT_OF, i - 1);
-            	    	lp.addRule(RelativeLayout.ALIGN_TOP, i - 1);
+            	    if (id % 2 == 0) { // right column
+            	    	lp.addRule(RelativeLayout.RIGHT_OF, id - 1);
+            	    	lp.addRule(RelativeLayout.ALIGN_TOP, id - 1);
             	    }
-            	    if (i > 1) {
-            	    	lp.addRule(RelativeLayout.BELOW, i - 2);
+            	    if (id > 2) {
+            	    	lp.addRule(RelativeLayout.BELOW, id - 2);
             	    }
 
             	    ((android.view.ViewGroup) findViewById(R.id.diceHolder)).addView(iv, lp);
