@@ -57,8 +57,12 @@ public class Dice extends Activity {
             		iv.setImageResource(getResources().getIdentifier(resource, "drawable", getPackageName()));
             		
             	    RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
+            	    if (i < 1) {
+            	    	lp.addRule(RelativeLayout.ALIGN_PARENT_TOP);
+            	    }
             	    if (i % 2 == 1) {
             	    	lp.addRule(RelativeLayout.RIGHT_OF, i - 1);
+            	    	lp.addRule(RelativeLayout.ALIGN_TOP, i - 1);
             	    }
             	    if (i > 1) {
             	    	lp.addRule(RelativeLayout.BELOW, i - 2);
