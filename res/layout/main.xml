@@ -3,6 +3,7 @@
     android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+    android:id="@+id/mainLayout"
     >
 
  
@@ -28,6 +29,4 @@
         android:prompt="@string/dice_prompt"
     />
     
-<ImageView android:id="@+id/ImageView01" android:layout_width="wrap_content" android:layout_height="wrap_content"></ImageView>
-<ImageView android:id="@+id/ImageView02" android:layout_width="wrap_content" android:layout_height="wrap_content"></ImageView>
 </LinearLayout>

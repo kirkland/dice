@@ -33,8 +33,7 @@ public class Dice extends Activity {
         
         class OnDiceSelectedListener implements OnItemSelectedListener {
             public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
-            	int index = (int) id;
-            	diceCount = getResources().getIntArray(R.array.dice_array)[index];
+            	diceCount = ((int) id) + 1;
             }
             
             public void onNothingSelected(AdapterView<?> parent) {
@@ -50,18 +49,12 @@ public class Dice extends Activity {
                 
             	Random generator = new Random();
             	
-            	String diceIndex1 = "" + (generator.nextInt(6) + 1);
-            	String resource1 = "dice" + diceIndex1;         	            
-                ImageView iv = (ImageView) findViewById(R.id.ImageView01);
-                iv.setImageResource(getResources().getIdentifier(resource1, "drawable", getPackageName()));        	
-   
-                if (diceCount == 2) {
-                String diceIndex2 = "" + (generator.nextInt(6) + 1);
-                String resource2 = "dice" + diceIndex2;
-                ImageView iv2 = (ImageView) findViewById(R.id.ImageView02);
-                iv2.setImageResource(getResources().getIdentifier(resource2, "drawable", getPackageName()));
-                }
-                
+            	for (int i = 0; i < diceCount; i++) {
+            		ImageView iv = new ImageView(Dice.this);
+            		String resource = "dice" + (generator.nextInt(6) + 1);
+            		iv.setImageResource(getResources().getIdentifier(resource, "drawable", getPackageName()));
+            		((android.view.ViewGroup) findViewById(R.id.mainLayout)).addView(iv);
+            	}
             }
         });
     }
